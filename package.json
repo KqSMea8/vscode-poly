@@ -11,21 +11,50 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.helloWorld",
     "onCommand:extension.poly"
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [
+    "configuration": {
+      "type": "object",
+      "title": "vscode-poly",
+      "properties": {
+        "vscodepoly.root": {
+          "type": "string",
+          "default": "src/lang/_poly",
+          "description": "poly翻译文件根目录"
+        }
+      }
+    },
+    "snippets": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
-      },
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      }
+    ],
+    "commands": [
       {
         "command": "extension.poly",
         "title": "poly"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "extension.poly",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus && resourceLangId == javascript",
+          "command": "extension.poly",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",

@@ -1,0 +1,16 @@
+{
+  "$t": {
+    "prefix": "t'",
+    "body": [
+      "this.\\$t('${1:key}')"
+    ],
+    "description": "this.$t"
+  },
+  "$te": {
+    "prefix": "te'",
+    "body": [
+      "this.\\$te('${1:key}')"
+    ],
+    "description": "this.$te"
+  }
+}
