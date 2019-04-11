@@ -61,6 +61,9 @@ function isI18nKey(word, line) {
  * @returns
  */
 function getHoverTextOfKey(key, init = '') {
+  if (!key) {
+    return '';
+  }
   const textList = searchText(key) || [];
 
   const hoverText = textList.reduce((result, item) => {
