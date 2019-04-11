@@ -11,7 +11,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.poly"
+    "onLanguage:javascript",
+    "onLanguage:vue",
+    "onCommand:extension.key2text"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -34,13 +36,13 @@
     ],
     "commands": [
       {
-        "command": "extension.poly",
-        "title": "poly"
+        "command": "extension.key2text",
+        "title": "poly: 查找key对应的文案"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.poly",
+        "command": "extension.key2text",
         "key": "ctrl+f10",
         "mac": "cmd+f10",
         "when": "editorTextFocus"
@@ -49,8 +51,8 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorFocus && resourceLangId == javascript",
-          "command": "extension.poly",
+          "when": "editorHasSelection && resourceFilename =~ /.js|.vue/",
+          "command": "extension.key2text",
           "group": "navigation"
         }
       ]
