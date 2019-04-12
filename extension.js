@@ -2,7 +2,7 @@ const vscode = require('vscode');
 const commands = require('./commands');
 const hovers = require('./hovers');
 const definitions = require('./definitions');
-const loadLang = require('./utils/loadLang');
+const { loadLang } = require('./utils/loadLang');
 
 /**
  * this method is called when your extension is activated

@@ -1,5 +1,7 @@
 const path = require('path');
-const loadLang = require('./loadLang');
+const findInFiles = require('find-in-files');
+
+const { loadLang, getPolyRoot, fileFilter } = require('./loadLang');
 
 const cache = {};
 
@@ -7,10 +9,10 @@ const cache = {};
  * 根据key查找对应的文案
  *
  * @author liubin.frontend
- * @param {*} key
+ * @param {string} key
  * @returns
  */
-function searchText(key) {
+function searchTrans(key) {
   const polyLang = loadLang();
 
   if (cache[key]) {
@@ -50,7 +52,7 @@ function isI18nKey(word, line) {
   if (!word || !line) {
     return false;
   }
-  return new RegExp(`\\$(t|te)\\(\\s*('|")${word}('|")\\s*\\)`).test(line);
+  return new RegExp(`\\$(t|te)\\(\\s*('|")\\s*${word}\\s*('|")\\s*(\\)|,)`).test(line);
 }
 
 /**
@@ -64,7 +66,7 @@ function getHoverTextOfKey(key, init = '') {
   if (!key) {
     return '';
   }
-  const textList = searchText(key) || [];
+  const textList = searchTrans(key) || [];
 
   const hoverText = textList.reduce((result, item) => {
     result += `* **${path.parse(item.filename).name}**: ${item.text}\n`;
@@ -73,8 +75,13 @@ function getHoverTextOfKey(key, init = '') {
   return hoverText;
 }
 
+// 在poly文件中查找匹配的文本
+function searchText(text) {
+  return findInFiles.find({ term: text, flags: 'ig' }, getPolyRoot(), fileFilter);
+}
+
 module.exports = {
-  searchText,
   isI18nKey,
   getHoverTextOfKey,
+  searchText,
 };

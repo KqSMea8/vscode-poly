@@ -12,8 +12,7 @@
   ],
   "activationEvents": [
     "onLanguage:javascript",
-    "onLanguage:vue",
-    "onCommand:extension.key2text"
+    "onLanguage:vue"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -24,6 +23,11 @@
         "vscodepoly.root": {
           "type": "string",
           "default": "src/lang/_poly",
+          "description": "poly翻译文件根目录"
+        },
+        "vscodepoly.includes": {
+          "type": "string",
+          "default": "(en|zh|ja)\\.json$",
           "description": "poly翻译文件根目录"
         }
       }
@@ -38,11 +42,15 @@
       {
         "command": "extension.key2text",
         "title": "poly: 查找key对应的文案"
+      },
+      {
+        "command": "extension.textSearch",
+        "title": "poly: 查找相似的翻译"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.key2text",
+        "command": "extension.textSearch",
         "key": "ctrl+f10",
         "mac": "cmd+f10",
         "when": "editorTextFocus"
@@ -52,7 +60,7 @@
       "editor/context": [
         {
           "when": "editorHasSelection && resourceFilename =~ /.js|.vue/",
-          "command": "extension.key2text",
+          "command": "extension.textSearch",
           "group": "navigation"
         }
       ]
@@ -63,10 +71,13 @@
     "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
-    "eslint": "^5.13.0",
+    "@types/mocha": "^2.2.42",
     "@types/node": "^10.12.21",
-    "@types/mocha": "^2.2.42"
+    "eslint": "^5.13.0",
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28"
+  },
+  "dependencies": {
+    "find-in-files": "^0.5.0"
   }
 }

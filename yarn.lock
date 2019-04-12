@@ -389,6 +389,19 @@ file-entry-cache@^5.0.1:
   dependencies:
     flat-cache "^2.0.1"
 
+find-in-files@^0.5.0:
+  version "0.5.0"
+  resolved "http://bnpm.byted.org/find-in-files/download/find-in-files-0.5.0.tgz#8e5a20ffb562e0a47cb916b7f7b821717025e691"
+  dependencies:
+    find "^0.1.5"
+    q "^1.0.1"
+
+find@^0.1.5:
+  version "0.1.7"
+  resolved "http://bnpm.byted.org/find/download/find-0.1.7.tgz#c86c87af1ab18f222bbe38dec86cbc760d16a6fb"
+  dependencies:
+    traverse-chain "~0.1.0"
+
 flat-cache@^2.0.1:
   version "2.0.1"
   resolved "http://bnpm.byted.org/flat-cache/download/flat-cache-2.0.1.tgz#5d296d6f04bda44a4630a301413bdbc2ec085ec0"
@@ -761,6 +774,10 @@ punycode@^2.1.0:
   version "2.1.1"
   resolved "http://bnpm.byted.org/punycode/download/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
 
+q@^1.0.1:
+  version "1.5.1"
+  resolved "http://bnpm.byted.org/q/download/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+
 qs@~6.5.2:
   version "6.5.2"
   resolved "http://bnpm.byted.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -966,6 +983,10 @@ tough-cookie@~2.4.3:
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
+
+traverse-chain@~0.1.0:
+  version "0.1.0"
+  resolved "http://bnpm.byted.org/traverse-chain/download/traverse-chain-0.1.0.tgz#61dbc2d53b69ff6091a12a168fd7d433107e40f1"
 
 tslib@^1.9.0:
   version "1.9.3"

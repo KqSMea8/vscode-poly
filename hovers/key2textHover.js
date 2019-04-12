@@ -2,7 +2,6 @@ const vscode = require('vscode');
 const search = require('../utils/search');
 
 function defaultHover(document, position, token) {
-  console.log('defaultHover');
   const line = document.lineAt(position).text;
   const positionWord = document.getText(document.getWordRangeAtPosition(position));
   const isPositionWordI18nKey = search.isI18nKey(positionWord, line);
@@ -13,7 +12,8 @@ function defaultHover(document, position, token) {
   const textEditor = vscode.window.activeTextEditor;
 
   if (textEditor && (selectionText = textEditor.document.getText(textEditor.selection))) {
-    selectionHoverText = `**${selectionText}对应的已有翻译:** \n${search.getHoverTextOfKey(selectionText)}`;
+    const temp = search.getHoverTextOfKey(selectionText);
+    selectionHoverText = temp ? `**${selectionText}对应的已有翻译:** \n${temp}` : `**没有找到${selectionText}对应的已有翻译。** \n`;
   }
 
   // 光标所在文字是poly key
