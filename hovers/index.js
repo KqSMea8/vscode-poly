@@ -1,3 +1,3 @@
-const { defaultHover } = require('./key2textHover.js');
+const { key2textHover } = require('./key2text.js');
 
-module.exports = [defaultHover];
+module.exports = [key2textHover];

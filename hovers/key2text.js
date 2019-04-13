@@ -1,7 +1,8 @@
 const vscode = require('vscode');
 const search = require('../utils/search');
 
-function defaultHover(document, position, token) {
+// 展示poly key对应的文本翻译
+function hover(document, position, token) {
   const line = document.lineAt(position).text;
   const positionWord = document.getText(document.getWordRangeAtPosition(position));
   const isPositionWordI18nKey = search.isI18nKey(positionWord, line);
@@ -32,8 +33,8 @@ function defaultHover(document, position, token) {
   }
 }
 
-const defaultHoverDisposable = vscode.languages.registerHoverProvider(['javascript', 'vue'], {
-  provideHover: defaultHover,
+const key2textHoverDisposable = vscode.languages.registerHoverProvider(['javascript', 'vue'], {
+  provideHover: hover,
 });
 
-exports.defaultHover = defaultHoverDisposable;
+exports.key2textHover = key2textHoverDisposable;

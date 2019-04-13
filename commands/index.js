@@ -1,4 +1,3 @@
-const key2textCommand = require('./key2textCommand.js');
-const textSearchCommand = require('./textSearchCommand');
+const textSearchCommand = require('./textSearch');
 
-module.exports = [key2textCommand, textSearchCommand];
+module.exports = [textSearchCommand];

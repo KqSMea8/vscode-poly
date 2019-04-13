@@ -19,6 +19,10 @@
     "configuration": {
       "type": "object",
       "title": "vscode-poly",
+      "required": [
+        "vscodepoly.sid",
+        "vscodepoly.projectid"
+      ],
       "properties": {
         "vscodepoly.root": {
           "type": "string",
@@ -29,6 +33,16 @@
           "type": "string",
           "default": "(en|zh|ja)\\.json$",
           "description": "poly翻译文件根目录"
+        },
+        "vscodepoly.sid": {
+          "type": "integer",
+          "default": 217,
+          "description": "poly个人id"
+        },
+        "vscodepoly.projectid": {
+          "type": "integer",
+          "default": 49,
+          "description": "poly项目id"
         }
       }
     },
@@ -78,6 +92,7 @@
     "vscode": "^1.1.28"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "find-in-files": "^0.5.0"
   }
 }

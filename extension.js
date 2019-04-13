@@ -3,6 +3,7 @@ const commands = require('./commands');
 const hovers = require('./hovers');
 const definitions = require('./definitions');
 const { loadLang } = require('./utils/loadLang');
+const { getTemplates } = require('./utils/polyUtil');
 
 /**
  * this method is called when your extension is activated
@@ -12,6 +13,7 @@ const { loadLang } = require('./utils/loadLang');
  */
 function activate(context) {
   console.log('activated~~~~');
+  getTemplates();
   loadLang();
 
   context.subscriptions.push(...commands, ...hovers, ...definitions);
