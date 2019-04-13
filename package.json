@@ -12,7 +12,8 @@
   ],
   "activationEvents": [
     "onLanguage:javascript",
-    "onLanguage:vue"
+    "onLanguage:vue",
+    "onLanguage:json"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -55,19 +56,23 @@
     "commands": [
       {
         "command": "extension.addKey2Poly",
-        "title": "poly: 添加这个key到poly"
+        "title": "poly: 添加这个key到poly草稿"
       },
       {
         "command": "extension.addText2Poly",
-        "title": "poly: 添加这个文案到poly"
+        "title": "poly: 添加这个文案到poly草稿"
       },
       {
         "command": "extension.addJson2Poly",
-        "title": "poly: 批量将JSON文案添加到poly"
+        "title": "poly: 批量将JSON文案添加到poly草稿"
       },
       {
         "command": "extension.textSearch",
         "title": "poly: 查找相似的翻译"
+      },
+      {
+        "command": "extension.createPolyTemplate",
+        "title": "poly: 创建模板"
       }
     ],
     "keybindings": [

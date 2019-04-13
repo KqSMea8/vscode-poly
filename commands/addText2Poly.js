@@ -28,7 +28,7 @@ let addText2Poly = commands.registerTextEditorCommand('extension.addText2Poly', 
   uploadDraft(
     template.id,
     {
-      [`${template.keyPrefix}_${polyKey}`]: polyTrans,
+      [`${template.keyPrefix}_${polyKey.trim()}`]: polyTrans.trim(),
     },
     lang,
   );

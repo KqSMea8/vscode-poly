@@ -32,11 +32,11 @@ function createTemplate(name, keyPrefix, category, description) {
   axios
     .post(`${api.post_template}?project_id=${projectId}`, {
       name,
-      keyPrefix,
+      key_prefix: keyPrefix,
       category,
       description,
     })
-    .then(() => vscode.window.showInformationMessage('创建成功'));
+    .then(() => vscode.window.showInformationMessage('创建模板成功'));
 }
 
 function uploadDraft(templateId, data = {}, lang = 'en') {
@@ -48,7 +48,7 @@ function uploadDraft(templateId, data = {}, lang = 'en') {
       region: '*',
       template_id: templateId,
     })
-    .then(() => vscode.window.showInformationMessage('创建成功'));
+    .then(() => vscode.window.showInformationMessage('添加草稿成功'));
 }
 
 module.exports = {

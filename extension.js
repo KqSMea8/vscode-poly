@@ -12,6 +12,7 @@ const { getTemplates } = require('./utils/polyUtil');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+  console.log('vscode-poly: activated');
   getTemplates();
   vscode.window.setStatusBarMessage('vscode-poly: 开始加载文案');
   loadLang();
