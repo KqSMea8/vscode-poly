@@ -54,8 +54,16 @@
     ],
     "commands": [
       {
-        "command": "extension.key2text",
-        "title": "poly: 查找key对应的文案"
+        "command": "extension.addKey2Poly",
+        "title": "poly: 添加这个key到poly"
+      },
+      {
+        "command": "extension.addText2Poly",
+        "title": "poly: 添加这个文案到poly"
+      },
+      {
+        "command": "extension.addJson2Poly",
+        "title": "poly: 批量将JSON文案添加到poly"
       },
       {
         "command": "extension.textSearch",
@@ -75,7 +83,22 @@
         {
           "when": "editorHasSelection && resourceFilename =~ /.js|.vue/",
           "command": "extension.textSearch",
-          "group": "navigation"
+          "group": "6_poly"
+        },
+        {
+          "when": "editorHasSelection && resourceFilename =~ /.js|.vue|.json/",
+          "command": "extension.addKey2Poly",
+          "group": "6_poly"
+        },
+        {
+          "when": "editorHasSelection && resourceFilename =~ /.js|.vue|.json/",
+          "command": "extension.addText2Poly",
+          "group": "6_poly"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.addJson2Poly",
+          "group": "6_poly"
         }
       ]
     }

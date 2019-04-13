@@ -2,10 +2,10 @@ const { commands, window } = require('vscode');
 const { uploadDraft } = require('../utils/polyUtil.js');
 const helper = require('./helper');
 
-let addKey2Poly = commands.registerTextEditorCommand('extension.addKey2Poly', async function(textEditor, edit) {
-  const polyKey = textEditor.document.getText(textEditor.selection);
+let addText2Poly = commands.registerTextEditorCommand('extension.addText2Poly', async function(textEditor, edit) {
+  const polyTrans = textEditor.document.getText(textEditor.selection);
 
-  if (!polyKey) {
+  if (!polyTrans) {
     window.showErrorMessage('没有选中任何文本');
     return;
   }
@@ -20,18 +20,18 @@ let addKey2Poly = commands.registerTextEditorCommand('extension.addKey2Poly', as
     return;
   }
 
-  const polyTrans = await helper.showTextInput('最后一步： 输入文案'); // 最后一步： 输入文案
-  if (polyTrans === undefined) {
+  const polyKey = await helper.showTextInput('最后一步： 输入poly key(无需前缀，插件会自动帮忙添加)'); // 最后一步： 输入poly key
+  if (polyKey === undefined) {
     return;
   }
 
   uploadDraft(
     template.id,
     {
-      [polyKey]: polyTrans,
+      [`${template.keyPrefix}_${polyKey}`]: polyTrans,
     },
     lang,
   );
 });
 
-module.exports = addKey2Poly;
+module.exports = addText2Poly;

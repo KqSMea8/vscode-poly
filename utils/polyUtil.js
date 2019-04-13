@@ -5,12 +5,20 @@ const api = require('../const/api');
 
 const { projectId } = getConfig();
 
+let templates;
 function getTemplates() {
+  if (templates) {
+    return Promise.resolve(templates);
+  }
+
   axios
     .get(api.get_template, {
       project_id: projectId,
     })
-    .then(resp => resp.template_list);
+    .then(resp => {
+      templates = resp.template_list;
+      return resp.template_list;
+    });
 }
 
 /**
@@ -32,7 +40,7 @@ function createTemplate(name, keyPrefix, category, description) {
 }
 
 function uploadDraft(templateId, data = {}, lang = 'en') {
-  axios
+  return axios
     .post(api.upload_draft, {
       project_id: projectId,
       data,
