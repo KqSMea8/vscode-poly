@@ -115,8 +115,8 @@
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "node ./node_modules/vscode/bin/test",
-    "pack": "vsce package --baseImagesUrl=https://code.byted.org/liubin.frontend/vscode-poly/tree/master",
-    "pub": "git add . && git commit -m 'publish' && git push && vsce publish minor --baseImagesUrl=https://code.byted.org/liubin.frontend/vscode-poly/tree/master"
+    "pack": "vsce package --baseImagesUrl=https://code.byted.org/liubin.frontend/vscode-poly/raw/master/",
+    "pub": "git add . && git commit -m 'publish' && git push && vsce publish minor --baseImagesUrl=https://code.byted.org/liubin.frontend/vscode-poly/raw/master/"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",

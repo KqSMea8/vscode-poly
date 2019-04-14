@@ -30,7 +30,7 @@
 * 自动展示key对应的已有翻译文案
   * 当鼠标悬停在一个`vue-i18n`插件的`key`上时，自动展示这个key对应的文案翻译
 
-  ![hover-on-i18n-key](./assets/hover-on-i18n-key.gif)
+  ![hover-on-i18n-key](https://code.byted.org/liubin.frontend/vscode-poly/raw/master/assets/hover-on-i18n-key.gif)
 
   * 当选中一些文本时并`hover`时，会自动将这些文本当做`key`并展示对应文案翻译
 
