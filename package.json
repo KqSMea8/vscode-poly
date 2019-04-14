@@ -4,6 +4,10 @@
   "displayName": "vscode-poly",
   "description": "",
   "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://code.byted.org/liubin.frontend/vscode-poly"
+  },
   "engines": {
     "vscode": "^1.29.0"
   },
