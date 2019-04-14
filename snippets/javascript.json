@@ -12,5 +12,19 @@
       "this.\\$te('${1:key}')"
     ],
     "description": "this.$te"
+  },
+  "const_$t_this": {
+    "prefix": "ct'",
+    "body": [
+      "const { \\$t } = this;"
+    ],
+    "description": "const_$t_this"
+  },
+  "const_$te_this": {
+    "prefix": "cte'",
+    "body": [
+      "const { \\$te } = this;"
+    ],
+    "description": "const_$te_this"
   }
 }
