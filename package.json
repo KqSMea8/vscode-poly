@@ -110,7 +110,9 @@
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "node ./node_modules/vscode/bin/test",
+    "pack": "vsce package --baseImagesUrl=https://code.byted.org/liubin.frontend/vscode-poly/tree/master",
+    "pub": "vsce publish minor"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
